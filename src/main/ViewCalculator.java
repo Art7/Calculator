@@ -286,3 +286,12 @@ public class ViewCalculator {
     }
 
 }
+//Как использовать один font для всех кнопок
+// создать свой класс MyButton - наследник JButton
+//public class MyButton extends JButton {
+//public MyButton(String title){
+//super(title);   - вызывает конструктор родителя, это нужно делать в самом начале
+//setFont(new Font("Arial",0,25));
+//}
+//}
+//MyButton dotButton = new MyButton(".");
