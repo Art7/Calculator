@@ -25,15 +25,15 @@ public class ViewCalculator {
     //leftBottomPanel objects
     private JPanel leftBottomPanel;
     private GridLayout leftBottomGridLayout;
-    private JButton backButton;
-    private JButton cButton;
+    private MyButton backButton;
+    private MyButton cButton;
 
 
     //centerBottomPanel objects
     private JPanel centerBottomPanel;
     private GridLayout centerBottomGridLayout;
-    private JButton[] digitButtons;
-    private JButton pointButton;
+    private MyButton[] digitButtons;
+    private MyButton pointButton;
 
     //rightBottomPanel objects
     private JPanel rightBottomPanel;
@@ -42,15 +42,15 @@ public class ViewCalculator {
     //rightBigBottomPanel
     private JPanel rightBigBottomPanel;
     private GridLayout rightBigBottomGridLayout;
-    private JButton plusButton;
-    private JButton minusButton;
-    private JButton divideButton;
-    private JButton multButton;
+    private MyButton plusButton;
+    private MyButton minusButton;
+    private MyButton divideButton;
+    private MyButton multButton;
 
     //rightSmallBottomPanel objects
     private JPanel rightSmallBottomPanel;
     private GridLayout rightSmallBottomGridLayout;
-    private JButton equalButton;
+    private MyButton equalButton;
 
     //Model object description
     private Model logic;
@@ -84,64 +84,48 @@ public class ViewCalculator {
         leftBottomGridLayout = new GridLayout(2,1,5,5);
 
         //leftBottomPanel buttons creation
-        backButton = new JButton("BS");
-        backButton.setForeground(Color.RED);
-        backButton.setFont(new Font("Arial", Font.BOLD, 16));
-        cButton = new JButton("C");
-        cButton.setForeground(Color.RED);
-        cButton.setFont(new Font("Arial", Font.BOLD, 16));
+        backButton = new MyButton("BS");
+        cButton = new MyButton("C");
 
         //centerBottomPanel objects creation
         centerBottomPanel = new JPanel();
         centerBottomGridLayout = new GridLayout(4,4,5,5);
 
         //array of digital buttons
-        digitButtons = new JButton[10];
+        digitButtons = new MyButton[10];
 
         //rightBottomPanel objects creation
         rightBottomPanel = new JPanel();
-        digitButtons = new JButton[10];
-        pointButton = new JButton(".");
+        digitButtons = new MyButton[10];
+        pointButton = new MyButton(".");
         rightBottomGridLayout = new GridLayout(2,1,5,5);
 
         //rightBigBottomPanel objects creation
         rightBigBottomPanel = new JPanel();
         rightBigBottomGridLayout = new GridLayout(2,2,5,5);
-        plusButton = new JButton("+");
-        minusButton = new JButton("-");
-        divideButton = new JButton("/");
-        multButton = new JButton("*");
+        plusButton = new MyButton("+");
+        minusButton = new MyButton("-");
+        divideButton = new MyButton("/");
+        multButton = new MyButton("*");
 
         //rightSmallBottomPanel objects creation
         rightSmallBottomPanel = new JPanel();
         rightSmallBottomGridLayout = new GridLayout(1,2,5,5);
-        equalButton = new JButton("=");
+        equalButton = new MyButton("=");
 
         //*************************ACTIONS FOR BUTTONS************************
 
         //Action for equal button creation
         equalButton.addActionListener(new equalButtonPressed());
-        equalButton.setForeground(Color.RED);
-        equalButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //Actions for arythmetic buttons
         plusButton.addActionListener(new arithButtonPressed());
-        plusButton.setForeground(Color.RED);
-        plusButton.setFont(new Font("Arial", Font.BOLD, 16));
         minusButton.addActionListener(new arithButtonPressed());
-        minusButton.setForeground(Color.RED);
-        minusButton.setFont(new Font("Arial", Font.BOLD, 16));
         divideButton.addActionListener(new arithButtonPressed());
-        divideButton.setForeground(Color.RED);
-        divideButton.setFont(new Font("Arial", Font.BOLD, 16));
         multButton.addActionListener(new arithButtonPressed());
-        multButton.setForeground(Color.RED);
-        multButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //action for point button
         pointButton.addActionListener(new pointButtonPressed());
-        pointButton.setForeground(Color.RED);
-        pointButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //action for CE and backspace buttons
         cButton.addActionListener(new clearButtonPressed());
@@ -178,15 +162,11 @@ public class ViewCalculator {
         //centerBottomPanel construction
         centerBottomPanel.setLayout(centerBottomGridLayout);
         for(int i = 1; i < 10; i++)  {
-            digitButtons[i] = new JButton(String.valueOf(i));
+            digitButtons[i] = new MyButton(String.valueOf(i));
             digitButtons[i].addActionListener(new digitButtonPressed());
-            digitButtons[i].setForeground(Color.RED);
-            digitButtons[i].setFont(new Font("Arial", Font.BOLD, 16));
             centerBottomPanel.add(digitButtons[i]);
         }
-        digitButtons[0] = new JButton("0");
-        digitButtons[0].setForeground(Color.RED);
-        digitButtons[0].setFont(new Font("Arial", Font.BOLD, 16));
+        digitButtons[0] = new MyButton("0");
         digitButtons[0].addActionListener(new digitButtonPressed());
         centerBottomPanel.add(digitButtons[0]);
         centerBottomPanel.add(pointButton);

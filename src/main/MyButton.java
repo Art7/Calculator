@@ -9,6 +9,7 @@ import java.awt.*;
 public class MyButton extends JButton {
     public MyButton(String title){
         super(title);
-        setFont(new Font("Arial",0,25));
+        setForeground(Color.RED);
+        setFont(new Font("Arial", Font.ITALIC, 16));
     }
 }
